@@ -1,3 +1,4 @@
+require('dotenv').config()
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -39,8 +40,22 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://api.alquran.cloud/v1',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL,
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
+  },
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="md:px-64">
     <div class="font-bold text-4xl text-center mb-10">
-      {{ ayah.englishName }}
+      {{ ayahs.englishName }}
     </div>
     <ul v-for="ayah in ayahs.ayahs" :key="ayah.number" class="text-right">
       <span

@@ -2,7 +2,7 @@
   <div class="grid md:grid-cols-3 gap-4 md:px-64">
     <div v-for="surah in surahs" :key="surah.number">
       <nuxt-link :to="`/surah/${surah.number}`">
-        <div class="bg-white text-center rounded-lg shadow p-6 h-24 md:h-40">
+        <div class="bg-white text-center rounded-lg shadow p-6 md:h-40">
           <div class="text-lg font-bold md:mb-2">Surah {{ surah.number }}</div>
           <div class="font-kitab">
             {{ surah.name }}

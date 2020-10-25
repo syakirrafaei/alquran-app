@@ -3,17 +3,17 @@
     :class="{
       scrolled: !view.atTopOfPage,
     }"
-    class="md:hidden fixed bg-white w-full mt-0 bottom-0 nav shadow-sm blur"
+    class="md:hidden fixed bg-white w-full mt-0 bottom-0 nav shadow"
   >
     <nav
       :class="{ scrolled: !view.atTopOfPage }"
-      class="w-full items-center justify-between grid grid-cols-3 py-3 px-3 text-center shadow"
+      class="w-full items-center justify-between grid grid-cols-3 py-1 px-3 text-center shadow"
     >
       <div class="col-span-1"></div>
       <div class="col-span-1">
         <nuxt-link to="/"
           ><svg
-            class="w-10 h-10 mx-auto text-green-800 shadow-xl bg-green-400 opacity-75 rounded-full px-1"
+            class="w-6 h-6 mx-auto text-green-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -26,6 +26,7 @@
               d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             ></path>
           </svg>
+          <div class="text-sm text-green-600 antialiased">Home</div>
         </nuxt-link>
       </div>
       <div class="col-span-1"></div>
@@ -67,9 +68,5 @@ export default {
 <style scoped>
 .nav {
   z-index: 100;
-}
-.blur {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
 }
 </style>

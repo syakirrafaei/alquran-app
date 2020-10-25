@@ -3,7 +3,7 @@
     :class="{
       scrolled: !view.atTopOfPage,
     }"
-    class="fixed bg-white w-full mt-0 top-0 nav shadow-sm"
+    class="hidden md:block fixed bg-white w-full mt-0 top-0 nav shadow-sm"
   >
     <nav
       :class="{ scrolled: !view.atTopOfPage }"

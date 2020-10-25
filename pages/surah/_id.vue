@@ -16,7 +16,7 @@
       <!-- <div class="row-span-1 col-span-1 text-center"></div> -->
       <div class="row-span-2 col-span-3 text-right py-6 px-1 md:px-3">
         <span v-if="ayah.numberInSurah !== 1" class="inline-block font-kitab">
-          {{ ayah.text }}
+          <Highlight :ayah="ayah.text" />
         </span>
         <span
           v-else-if="ayah.numberInSurah === 1 && firstAyahs.length === 1"
@@ -25,7 +25,7 @@
           <span>{{ firstAyahs }} بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
         </span>
         <span v-else class="inline-block font-kitab">
-          {{ firstAyahs }}
+          <Highlight :ayah="firstAyahs" />
         </span>
       </div>
     </div>

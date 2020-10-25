@@ -3,24 +3,32 @@
     <div class="font-bold text-4xl text-center mb-10">
       {{ ayahs.englishName }}
     </div>
-    <ul v-for="ayah in ayahs.ayahs" :key="ayah.number" class="text-right">
-      <span
-        class="text-2xl rounded-full px-3 py-1 text-green-500 border-green-600 border text-center"
-        >{{ ayah.numberInSurah }}</span
-      >
-      <li v-if="ayah.numberInSurah !== 1" class="inline-block font-kitab mb-10">
-        {{ ayah.text }}
-      </li>
-      <li
-        v-else-if="ayah.numberInSurah === 1 && firstAyahs.length === 1"
-        class="inline-block font-kitab mb-10"
-      >
-        <span>{{ firstAyahs }} بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
-      </li>
-      <li v-else class="inline-block font-kitab mb-10">
-        {{ firstAyahs }}
-      </li>
-    </ul>
+    <div
+      v-for="ayah in ayahs.ayahs"
+      :key="ayah.number"
+      class="grid shadow bg-grey grid-rows-2 grid-cols-4 grid-flow-col"
+    >
+      <div class="row-span-2 col-span-1 text-center my-auto">
+        <div class="font-bold h-20 w-20 shadow py-4 rounded-full text-4xl">
+          {{ ayah.numberInSurah.toLocaleString('ar-EG') }}
+        </div>
+      </div>
+      <!-- <div class="row-span-1 col-span-1 text-center"></div> -->
+      <div class="row-span-2 col-span-3 text-right py-6 px-1 md:px-3">
+        <span v-if="ayah.numberInSurah !== 1" class="inline-block font-kitab">
+          {{ ayah.text }}
+        </span>
+        <span
+          v-else-if="ayah.numberInSurah === 1 && firstAyahs.length === 1"
+          class="inline-block font-kitab"
+        >
+          <span>{{ firstAyahs }} بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+        </span>
+        <span v-else class="inline-block font-kitab">
+          {{ firstAyahs }}
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -38,3 +46,8 @@ export default {
   },
 }
 </script>
+<style>
+.bg-grey:nth-child(even) {
+  @apply bg-white;
+}
+</style>

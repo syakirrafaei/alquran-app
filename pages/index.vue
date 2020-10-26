@@ -1,63 +1,65 @@
 <template>
-  <div>
-    <div class="fixed md:relative w-full md:flex md:pt-4">
-      <div class="relative w-full md:w-1/4 text-center mx-auto">
-        <input
-          v-model="search"
-          type="text"
-          class="text-center px-3 py-3 md:rounded-lg shadow-sm border w-full mb-10"
-          placeholder="Search for surah.."
-        />
-        <div class="absolute top-0 left-0 mt-3 ml-4">
-          <svg
-            class="w-6 h-6 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            ></path>
-          </svg>
+  <transition name="home">
+    <div>
+      <div class="fixed md:relative w-full md:flex md:pt-4">
+        <div class="relative w-full md:w-1/4 text-center mx-auto">
+          <input
+            v-model="search"
+            type="text"
+            class="text-center px-3 py-3 md:rounded-lg shadow-sm border w-full mb-10"
+            placeholder="Search for surah.."
+          />
+          <div class="absolute top-0 left-0 mt-3 ml-4">
+            <svg
+              class="w-6 h-6 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="grid md:grid-cols-3 gap-4 md:px-64 lg:px-32 pt-20 md:pt-6 px-3 pb-20"
+      >
+        <div v-for="surah in filteredSurah" :key="surah.number">
+          <nuxt-link :to="`/surah/${surah.number}`">
+            <div class="bg-white text-center rounded-lg shadow">
+              <div class="grid grid-cols-5">
+                <div class="col-span-1 h-full hero rounded-tl-lg rounded-bl-lg">
+                  <div
+                    class="font-bold text-white bg-green-900 py-1 rounded-tl-lg"
+                  >
+                    Surah
+                  </div>
+                  <div class="font-bold text-white text-xl py-4">
+                    {{ surah.number }}
+                  </div>
+                </div>
+                <div class="col-span-4 p-6">
+                  <div class="text-lg font-bold md:mb-2">
+                    {{ surah.englishNameTranslation }}
+                  </div>
+                  <div class="font-kitab">
+                    {{ surah.name }}
+                  </div>
+                  <span class="text-base">( {{ surah.englishName }} )</span>
+                </div>
+              </div>
+            </div>
+          </nuxt-link>
         </div>
       </div>
     </div>
-    <div
-      class="grid md:grid-cols-3 gap-4 md:px-64 lg:px-32 pt-20 md:pt-6 px-3 pb-20"
-    >
-      <div v-for="surah in filteredSurah" :key="surah.number">
-        <nuxt-link :to="`/surah/${surah.number}`">
-          <div class="bg-white text-center rounded-lg shadow">
-            <div class="grid grid-cols-5">
-              <div class="col-span-1 h-full hero rounded-tl-lg rounded-bl-lg">
-                <div
-                  class="font-bold text-white bg-green-900 py-1 rounded-tl-lg"
-                >
-                  Surah
-                </div>
-                <div class="font-bold text-white text-xl py-4">
-                  {{ surah.number }}
-                </div>
-              </div>
-              <div class="col-span-4 p-6">
-                <div class="text-lg font-bold md:mb-2">
-                  {{ surah.englishNameTranslation }}
-                </div>
-                <div class="font-kitab">
-                  {{ surah.name }}
-                </div>
-                <span class="text-base">( {{ surah.englishName }} )</span>
-              </div>
-            </div>
-          </div>
-        </nuxt-link>
-      </div>
-    </div>
-  </div>
+  </transition>
 </template>
 <script>
 export default {
@@ -90,6 +92,7 @@ export default {
       })
     },
   },
+  transition: 'home',
 }
 </script>
 <style>
@@ -103,5 +106,13 @@ export default {
 }
 .grid {
   align-items: center;
+}
+.home-enter-active,
+.home-leave-active {
+  transition: opacity 0.2s;
+}
+.home-enter,
+.home-leave-active {
+  opacity: 0;
 }
 </style>

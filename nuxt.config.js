@@ -46,7 +46,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
-
+  loading: {
+    color: '#28df99',
+    height: '3px'
+  },
   publicRuntimeConfig: {
     axios: {
       browserBaseURL: process.env.BROWSER_BASE_URL,

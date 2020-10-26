@@ -11,7 +11,7 @@
     >
       <div class="flex items-center flex-no-shrink mr-6">
         <!-- <img src="" alt="Logo" class="w-32" /> -->
-        <span class="font-bold text-xl">alQuran App</span>
+        <span class="font-bold text-xl">MudahQuran</span>
       </div>
       <div class="block sm:hidden">
         <button class="flex items-center px-3 py-2 rounded" @click="toggle">

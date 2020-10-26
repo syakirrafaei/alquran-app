@@ -35,8 +35,10 @@
 export default {
   async asyncData({ $axios, params }) {
     const res = await $axios.$get(`surah/${params.id}`)
+    const resMalay = await $axios.$get(`surah/${params.id}/ms.basmeih`)
     const ayahs = res.data
-    return { ayahs }
+    const ayahsMalay = resMalay.data
+    return { ayahs, ayahsMalay }
   },
   computed: {
     firstAyahs() {

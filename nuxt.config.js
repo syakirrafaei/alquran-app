@@ -41,7 +41,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://api.alquran.cloud/v1',
+    baseURL: 'https://api.alquran.cloud/v1',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

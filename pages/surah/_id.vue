@@ -1,5 +1,5 @@
 <template>
-  <div class="md:px-64">
+  <div class="md:px-64 pb-20">
     <div class="font-bold text-white text-4xl py-8 hero text-center">
       {{ ayahs.englishName }}
     </div>

@@ -15,14 +15,28 @@
     >
       <div v-for="surah in filteredSurah" :key="surah.number">
         <nuxt-link :to="`/surah/${surah.number}`">
-          <div class="bg-white text-center rounded-lg shadow p-6 md:h-40">
-            <div class="text-lg font-bold md:mb-2">
-              Surah {{ surah.number }}
+          <div class="bg-white text-center rounded-lg shadow">
+            <div class="grid grid-cols-5">
+              <div class="col-span-1 h-full hero rounded-tl-lg rounded-bl-lg">
+                <div
+                  class="font-bold text-white bg-green-900 py-1 rounded-tl-lg"
+                >
+                  Surah
+                </div>
+                <div class="font-bold text-white text-xl py-4">
+                  {{ surah.number }}
+                </div>
+              </div>
+              <div class="col-span-4 p-6">
+                <div class="text-lg font-bold md:mb-2">
+                  {{ surah.englishNameTranslation }}
+                </div>
+                <div class="font-kitab">
+                  {{ surah.name }}
+                </div>
+                <span class="text-base">( {{ surah.englishName }} )</span>
+              </div>
             </div>
-            <div class="font-kitab">
-              {{ surah.name }}
-            </div>
-            <span class="text-base">( {{ surah.englishName }} )</span>
           </div>
         </nuxt-link>
       </div>
@@ -44,11 +58,31 @@ export default {
   computed: {
     filteredSurah() {
       return this.surahs.filter((surah) => {
-        return surah.englishName
-          .toLowerCase()
-          .includes(this.search.toLowerCase())
+        return (
+          surah.englishName.toLowerCase().includes(this.search.toLowerCase()) ||
+          surah.englishNameTranslation
+            .toLowerCase()
+            .includes(this.search.toLowerCase()) ||
+          surah.number
+            .toString()
+            .toLowerCase()
+            .includes(this.search.toLowerCase())
+        )
       })
     },
   },
 }
 </script>
+<style>
+.hero {
+  background-color: #48bb78;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='64' viewBox='0 0 48 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 28v-4L36 12 24 24 12 12 0 24v4l4 4-4 4v4l12 12 12-12 12 12 12-12v-4l-4-4 4-4zM8 32l-6-6 10-10 10 10-6 6 6 6-10 10L2 38l6-6zm12 0l4-4 4 4-4 4-4-4zm12 0l-6-6 10-10 10 10-6 6 6 6-10 10-10-10 6-6zM0 16L10 6 4 0h4l4 4 4-4h4l-6 6 10 10L34 6l-6-6h4l4 4 4-4h4l-6 6 10 10v4L36 8 24 20 12 8 0 20v-4zm0 32l10 10-6 6h4l4-4 4 4h4l-6-6 10-10 10 10-6 6h4l4-4 4 4h4l-6-6 10-10v-4L36 56 24 44 12 56 0 44v4z' fill='%233ca175' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.text-upright {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+.grid {
+  align-items: center;
+}
+</style>

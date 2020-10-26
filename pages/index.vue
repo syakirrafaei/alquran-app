@@ -57,7 +57,9 @@ export default {
   },
   computed: {
     filteredSurah() {
+      const appendText = 'surah '
       return this.surahs.filter((surah) => {
+        const concatSurah = appendText.concat(surah.number)
         return (
           surah.englishName.toLowerCase().includes(this.search.toLowerCase()) ||
           surah.englishNameTranslation
@@ -66,7 +68,8 @@ export default {
           surah.number
             .toString()
             .toLowerCase()
-            .includes(this.search.toLowerCase())
+            .includes(this.search.toLowerCase()) ||
+          concatSurah.includes(this.search.toLowerCase())
         )
       })
     },

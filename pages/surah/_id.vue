@@ -17,15 +17,24 @@
       <div class="row-span-2 col-span-3 text-right py-6 pl-1 pr-3 md:px-3">
         <span v-if="ayah.numberInSurah !== 1" class="inline-block font-kitab">
           <Highlight :ayah="ayah.text" />
+          <div class="text-sm italic">
+            {{ ayahsMalay.ayahs[ayah.numberInSurah - 1].text }}
+          </div>
         </span>
         <span
           v-else-if="ayah.numberInSurah === 1 && firstAyahs.length === 1"
           class="inline-block font-kitab"
         >
           <span>{{ firstAyahs }} بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+          <div class="text-sm italic">
+            {{ ayahsMalay.ayahs[ayah.numberInSurah - 1].text }}
+          </div>
         </span>
         <span v-else class="inline-block font-kitab">
           <Highlight :ayah="firstAyahs" />
+          <div class="text-sm italic">
+            {{ ayahsMalay.ayahs[ayah.numberInSurah - 1].text }}
+          </div>
         </span>
       </div>
     </div>

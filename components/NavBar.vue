@@ -10,8 +10,10 @@
       class="flex w-full items-center justify-between flex-wrap container mx-auto py-6 px-12 text-black"
     >
       <div class="flex items-center flex-no-shrink mr-6">
-        <!-- <img src="" alt="Logo" class="w-32" /> -->
-        <span class="font-bold text-xl">MudahQuran</span>
+        <!-- <img src="~assets/Logo.svg" alt="Logo" class="h-12" /> -->
+        <span class="font-bold italic text-xl"
+          >Mudah<span class="text-green-500">Quran</span></span
+        >
       </div>
       <div class="block sm:hidden">
         <button class="flex items-center px-3 py-2 rounded" @click="toggle">

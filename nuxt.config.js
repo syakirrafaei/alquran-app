@@ -82,13 +82,8 @@ export default {
     },
   },
   pwa: {
-    meta: {
-      nativeUI: true,
-    },
     manifest: {
       name: 'MudahQuran',
-      lang: 'en',
-      useWebmanifestExtension: false
-    }
+    },
   },
 }

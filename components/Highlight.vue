@@ -26,9 +26,10 @@ export default {
       .get(`http://127.0.0.1:8000/api/dictionary`)
       .then((response) => (this.info = response.data.data))
       .catch((e) => console.log(e))
-
-    this.high = this.ayah
-    this.highlight()
+      .finally(() => {
+        this.high = this.ayah
+        this.highlight()
+      })
   },
   methods: {
     highlight() {

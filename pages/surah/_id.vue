@@ -33,7 +33,7 @@
           @click="bookmark(ayah)"
         >
           <svg
-            v-if="localStorageSurah === ayah.numberInSurah"
+            v-if="localAyah == ayah.numberInSurah"
             class="w-6 h-6 mx-auto text-red-500"
             fill="#f56565"
             stroke="currentColor"
@@ -63,7 +63,7 @@
             ></path>
           </svg>
           <div
-            v-if="localStorageSurah === ayah.numberInSurah"
+            v-if="localAyah == ayah.numberInSurah"
             class="text-sm font-semibold pt-1"
           >
             Saved!
@@ -109,14 +109,14 @@ export default {
   data() {
     return {
       showMalay: true,
-      localStorageSurah: '',
+      localAyah: '',
     }
   },
   methods: {
     bookmark(ayah) {
       localStorage.lastAyah = ayah.numberInSurah
       localStorage.lastSurah = this.ayahs.englishName
-      this.localStorageSurah = ayah.numberInSurah
+      this.localAyah = ayah.numberInSurah
     },
   },
   computed: {
@@ -124,6 +124,14 @@ export default {
       const ayahsFirst = this.ayahs.ayahs[0].text
       return ayahsFirst.replace('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ', '')
     },
+  },
+  mounted() {
+    if (
+      localStorage.lastAyah &&
+      localStorage.lastSurah === this.ayahs.englishName
+    ) {
+      this.localAyah = localStorage.lastAyah
+    }
   },
 }
 </script>

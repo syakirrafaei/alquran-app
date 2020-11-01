@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   props: {
     ayah: {
@@ -13,108 +14,46 @@ export default {
       default: '',
     },
   },
+
   data() {
     return {
       high: '',
+      info: '',
     }
   },
-  beforeMount() {
+  async mounted() {
+    await axios
+      .get(`http://127.0.0.1:8000/api/dictionary`)
+      .then((response) => (this.info = response.data.data))
+      .catch((e) => console.log(e))
+
+    this.high = this.ayah
     this.highlight()
   },
   methods: {
     highlight() {
-      const myArray = [
-        'الْحَمْدُ',
-        'asdasdsfff',
-        'مَالِكِ',
-        'asdasds',
-        'الْحَمْدُ',
-        'asdasds',
-        'asdasds',
-        'الم',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'نَعْبُدُ',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'الر',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'الْمُسْتَقِيمَ',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'الْعَالَمِينَ',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'الْمُفْلِحُونَ',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'إِنَّ',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'asdasds',
-        'صِرَاطَ',
-      ]
-      //   let buffer = this.high
-      for (const value of myArray) {
-        this.ayah = this.ayah.replaceAll(
-          value,
-          `<span class="text-blue-500">${value}</span>`
-        )
+      for (const value of this.info) {
+        if (value.color_name === 'Red') {
+          this.high = this.high.replaceAll(
+            value.arabic,
+            `<span class="red">${value.arabic}</span>`
+          )
+        } else {
+          this.high = this.high.replaceAll(
+            value.arabic,
+            `<span style="color: ${value.color};">${value.arabic}</span>`
+          )
+        }
       }
-      this.high = this.ayah
     },
   },
 }
 </script>
+<style>
+.red:nth-child(even) {
+  @apply text-red-600;
+}
+.red:nth-child(odd) {
+  @apply text-orange-600;
+}
+</style>

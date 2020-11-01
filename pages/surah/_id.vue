@@ -80,4 +80,10 @@ export default {
 .bg-grey:nth-child(even) {
   @apply bg-white;
 }
+.dark-mode .bg-grey:nth-child(even) {
+  @apply bg-teal-800 text-white;
+}
+.dark-mode .bg-grey:nth-child(odd) {
+  @apply text-white;
+}
 </style>

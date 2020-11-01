@@ -3,13 +3,13 @@
     :class="{
       scrolled: !view.atTopOfPage,
     }"
-    class="md:hidden fixed bg-white w-full mt-0 bottom-0 nav shadow"
+    class="md:hidden fixed bg-white dark:bg-gray-800 w-full mt-0 bottom-0 nav shadow"
   >
     <nav
       :class="{ scrolled: !view.atTopOfPage }"
       class="w-full items-center justify-between grid grid-cols-3 py-1 px-3 text-center shadow"
     >
-      <div class="col-span-1">
+      <div class="col-span-1 cursor-pointer" @click="toggle">
         <svg
           class="w-6 h-6 mx-auto text-green-500"
           fill="none"
@@ -24,7 +24,7 @@
             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
           ></path>
         </svg>
-        <div class="text-sm text-green-600 antialiased">Dark Mode</div>
+        <button class="text-sm text-green-600 antialiased">Dark Mode</button>
       </div>
       <div class="col-span-1">
         <nuxt-link to="/"
@@ -81,7 +81,8 @@ export default {
   },
   methods: {
     toggle() {
-      this.open = !this.open
+      this.$colorMode.preference =
+        this.$colorMode.value === 'light' ? 'dark' : 'light'
     },
     handleScroll() {
       // when the user scrolls, check the pageYOffset

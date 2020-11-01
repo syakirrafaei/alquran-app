@@ -6,7 +6,7 @@
           <input
             v-model="search"
             type="text"
-            class="text-center px-3 py-3 md:rounded-lg shadow-sm border w-full mb-10"
+            class="text-center px-3 py-3 md:rounded-lg shadow-sm w-full mb-10 dark:bg-gray-900"
             placeholder="Search for surah.."
           />
           <div class="absolute top-0 left-0 mt-3 ml-4">
@@ -32,7 +32,9 @@
       >
         <div v-for="surah in filteredSurah" :key="surah.number">
           <nuxt-link :to="`/surah/${surah.number}`">
-            <div class="bg-white text-center rounded-lg shadow">
+            <div
+              class="bg-white dark:bg-gray-900 border dark:border-green-500 text-center rounded-lg shadow"
+            >
               <div class="grid grid-cols-5">
                 <div class="col-span-1 h-full hero rounded-tl-lg rounded-bl-lg">
                   <div
@@ -44,7 +46,7 @@
                     {{ surah.number }}
                   </div>
                 </div>
-                <div class="col-span-4 p-6">
+                <div class="col-span-4 p-6 dark:text-white">
                   <div class="text-lg font-bold md:mb-2">
                     {{ surah.englishNameTranslation }}
                   </div>

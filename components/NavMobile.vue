@@ -9,7 +9,7 @@
       :class="{ scrolled: !view.atTopOfPage }"
       class="w-full items-center justify-between grid grid-cols-3 py-1 px-3 text-center shadow"
     >
-      <div class="col-span-1 cursor-pointer" @click="toggle">
+      <div class="col-span-1 focus:outline-none cursor-pointer" @click="toggle">
         <svg
           class="w-6 h-6 mx-auto text-green-500"
           fill="none"
@@ -24,10 +24,10 @@
             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
           ></path>
         </svg>
-        <button class="text-sm text-green-600 antialiased">Dark Mode</button>
+        <div class="text-sm text-green-600 antialiased">Dark Mode</div>
       </div>
-      <div class="col-span-1">
-        <nuxt-link to="/"
+      <div class="col-span-1 focus:outline-none cursor-pointer">
+        <nuxt-link class="focus:outline-none hover:bg-gray-200" to="/"
           ><svg
             class="w-6 h-6 mx-auto text-green-500"
             fill="none"

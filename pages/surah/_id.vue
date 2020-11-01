@@ -4,14 +4,14 @@
       {{ ayahs.englishName }}
       <button
         v-if="showMalay === true"
-        class="translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
+        class="focus:outline-none focus:shadow-outline focus:border-green-500 translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
         @click="showMalay = !showMalay"
       >
         Hide Malay
       </button>
       <button
         v-else-if="showMalay === false"
-        class="translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
+        class="focus:outline-none focus:shadow-outline focus:border-green-500 translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
         @click="showMalay = !showMalay"
       >
         Show Malay

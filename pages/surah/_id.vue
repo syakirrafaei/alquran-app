@@ -3,10 +3,18 @@
     <div class="font-bold text-white text-4xl py-8 hero text-center">
       {{ ayahs.englishName }}
       <button
+        v-if="showMalay === true"
         class="translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
         @click="showMalay = !showMalay"
       >
         Hide Malay
+      </button>
+      <button
+        v-else-if="showMalay === false"
+        class="translation font-semibold block mx-auto text-base bg-green-600 shadow-lg rounded-lg px-3 py-1"
+        @click="showMalay = !showMalay"
+      >
+        Show Malay
       </button>
     </div>
     <div
@@ -48,17 +56,17 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      showMalay: true,
-    }
-  },
   async asyncData({ $axios, params }) {
     const res = await $axios.$get(`surah/${params.id}`)
     const resMalay = await $axios.$get(`surah/${params.id}/ms.basmeih`)
     const ayahs = res.data
     const ayahsMalay = resMalay.data
     return { ayahs, ayahsMalay }
+  },
+  data() {
+    return {
+      showMalay: true,
+    }
   },
   computed: {
     firstAyahs() {

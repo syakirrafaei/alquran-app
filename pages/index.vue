@@ -27,8 +27,21 @@
           </div>
         </div>
       </div>
+      <div class="md:px-64 lg:px-32 pt-16 md:pt-6 px-3">
+        <div
+          class="bg-green-100 dark:bg-gray-900 dark:text-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow"
+          role="alert"
+        >
+          <p v-if="lastSurah !== ''" class="font-bold">Continue at,</p>
+          <p v-if="lastSurah !== ''">
+            Surah {{ lastSurah }} - Ayat {{ lastAyah }}
+          </p>
+          <p v-else class="italic">No surah saved yet.</p>
+        </div>
+      </div>
+
       <div
-        class="grid md:grid-cols-3 gap-4 md:px-64 lg:px-32 pt-20 md:pt-6 px-3 pb-20"
+        class="grid md:grid-cols-3 gap-4 md:px-64 lg:px-32 pt-2 md:pt-6 px-3 pb-20"
       >
         <div v-for="surah in filteredSurah" :key="surah.number">
           <nuxt-link :to="`/surah/${surah.number}`">
@@ -76,6 +89,8 @@ export default {
   data() {
     return {
       search: '',
+      lastAyah: '',
+      lastSurah: '',
     }
   },
   computed: {
@@ -98,6 +113,12 @@ export default {
     },
   },
   transition: 'home',
+  mounted() {
+    if (localStorage.lastAyah && localStorage.lastSurah) {
+      this.lastAyah = localStorage.lastAyah
+      this.lastSurah = localStorage.lastSurah
+    }
+  },
 }
 </script>
 <style>

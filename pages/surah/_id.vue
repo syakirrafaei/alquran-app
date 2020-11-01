@@ -22,12 +22,55 @@
       :key="ayah.number"
       class="grid shadow bg-grey grid-rows-2 grid-cols-4 grid-flow-col"
     >
-      <div class="row-span-2 col-span-1 text-center my-auto px-2">
+      <div class="row-span-1 col-span-1 text-center my-auto px-2">
         <div class="number-kitab rounded-full">
           {{ ayah.numberInSurah.toLocaleString('ar-EG') }}
         </div>
       </div>
-      <!-- <div class="row-span-1 col-span-1 text-center"></div> -->
+      <div class="row-span-1 col-span-1 text-center px-2">
+        <div
+          class="cursor-pointer text-blue-600 dark:text-blue-100"
+          @click="bookmark(ayah)"
+        >
+          <svg
+            v-if="localStorageSurah === ayah.numberInSurah"
+            class="w-6 h-6 mx-auto text-red-500"
+            fill="#f56565"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg>
+          <svg
+            v-else
+            class="w-6 h-6 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg>
+          <div
+            v-if="localStorageSurah === ayah.numberInSurah"
+            class="text-sm font-semibold pt-1"
+          >
+            Saved!
+          </div>
+          <div v-else class="text-sm font-semibold pt-1">Save</div>
+        </div>
+      </div>
       <div class="row-span-2 col-span-3 text-right py-6 pl-1 pr-3 md:px-3">
         <span v-if="ayah.numberInSurah !== 1" class="inline-block font-kitab">
           <Highlight :ayah="ayah.text" />
@@ -66,7 +109,15 @@ export default {
   data() {
     return {
       showMalay: true,
+      localStorageSurah: '',
     }
+  },
+  methods: {
+    bookmark(ayah) {
+      localStorage.lastAyah = ayah.numberInSurah
+      localStorage.lastSurah = this.ayahs.englishName
+      this.localStorageSurah = ayah.numberInSurah
+    },
   },
   computed: {
     firstAyahs() {

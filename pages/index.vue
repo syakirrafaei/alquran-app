@@ -60,6 +60,9 @@
           </nuxt-link>
         </div>
       </div>
+      <div class="flex flex-row" v-if="filteredSurah.length <= 0">
+        <div class="mx-auto font-bold text-xl">No results.</div>
+      </div>
     </div>
   </transition>
 </template>

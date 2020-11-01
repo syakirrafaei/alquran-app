@@ -6,7 +6,7 @@
           <input
             v-model="search"
             type="text"
-            class="text-center px-3 py-3 md:rounded-lg shadow-sm w-full mb-10 dark:bg-gray-900 focus:outline-none focus:shadow-outline focus:border-green-300"
+            class="text-center px-3 py-3 md:rounded-lg shadow-sm w-full mb-10 dark:bg-gray-900 dark:text-white focus:outline-none focus:shadow-outline focus:border-green-300"
             placeholder="Search for surah.."
           />
           <div class="absolute top-0 left-0 mt-3 ml-4">

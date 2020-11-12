@@ -3,15 +3,15 @@
     :class="{
       scrolled: !view.atTopOfPage,
     }"
-    class="hidden md:block fixed bg-white w-full mt-0 top-0 nav shadow-sm"
+    class="hidden md:block fixed dark:bg-teal-800 bg-white w-full mt-0 top-0 nav shadow-sm"
   >
     <nav
       :class="{ scrolled: !view.atTopOfPage }"
-      class="flex w-full items-center justify-between flex-wrap container mx-auto py-6 px-12 text-black"
+      class="flex w-full items-center justify-between flex-wrap container mx-auto py-3 px-12 text-black"
     >
       <div class="flex items-center flex-no-shrink mr-6">
         <!-- <img src="~assets/Logo.svg" alt="Logo" class="h-12" /> -->
-        <span class="font-bold italic text-xl"
+        <span class="font-bold italic text-xl dark:text-white"
           >Mudah<span class="text-green-500">Quran</span></span
         >
       </div>
@@ -31,8 +31,27 @@
         :class="open ? 'block' : 'hidden'"
         class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
       >
-        <div class="mt-4 md:mt-0 ml-auto tracking-wider text-center">
-          <nuxt-link class="px-2" to="/">Home</nuxt-link>
+        <div class="mt-4 md:mt-0 ml-auto text-center">
+          <div class="cursor-pointer inline-block">
+            <nuxt-link to="/">
+              <svg
+                class="text-green-500 w-6 h-6 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                ></path>
+              </svg>
+            </nuxt-link>
+            <span class="text-green-600 px-2 antialiased text-sm">Home</span>
+          </div>
+          <div class="cursor-pointer inline-block"><color-mode /></div>
         </div>
       </div>
     </nav>
@@ -77,7 +96,7 @@ export default {
 div.scrolled {
   @apply shadow-2xl;
   border-bottom: 0px;
-  background: rgba(243, 243, 243, 0.3);
+  background: #1c3f42;
   backdrop-filter: blur(8px);
 }
 </style>

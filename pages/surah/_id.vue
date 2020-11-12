@@ -112,13 +112,7 @@ export default {
       localAyah: '',
     }
   },
-  methods: {
-    bookmark(ayah) {
-      localStorage.lastAyah = ayah.numberInSurah
-      localStorage.lastSurah = this.ayahs.englishName
-      this.localAyah = ayah.numberInSurah
-    },
-  },
+
   computed: {
     firstAyahs() {
       const ayahsFirst = this.ayahs.ayahs[0].text
@@ -132,6 +126,13 @@ export default {
     ) {
       this.localAyah = localStorage.lastAyah
     }
+  },
+  methods: {
+    bookmark(ayah) {
+      localStorage.lastAyah = ayah.numberInSurah
+      localStorage.lastSurah = this.ayahs.englishName
+      this.localAyah = ayah.numberInSurah
+    },
   },
 }
 </script>

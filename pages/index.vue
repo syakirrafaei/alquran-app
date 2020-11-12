@@ -73,7 +73,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="flex flex-row" v-if="filteredSurah.length <= 0">
+      <div v-if="filteredSurah.length <= 0" class="flex flex-row">
         <div class="mx-auto font-bold text-xl">No results.</div>
       </div>
     </div>

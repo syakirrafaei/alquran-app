@@ -34,4 +34,7 @@
   font-family: 'Kitab';
   font-size: 50px;
 }
+html.dark-mode {
+  @apply bg-teal-900;
+}
 </style>

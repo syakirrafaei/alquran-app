@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <div class="min-h-screen md:mt-20 bg-gray-100 dark:bg-teal-900 antialiased">
+    <div class="min-h-screen md:mt-16 bg-gray-100 dark:bg-teal-900 antialiased">
       <Nuxt />
     </div>
     <NavMobile />

@@ -1,7 +1,9 @@
 <template>
   <transition name="home">
     <div class="w-full md:w-1/2 mx-auto">
-      <div class="w-full text-xl hero p-6 font-bold text-white text-center">
+      <div
+        class="w-full text-xl md:text-2xl hero p-6 md:p-8 font-bold text-white text-center"
+      >
         Cara Belajar Memahami al-Quran
       </div>
       <div class="mx-4 mt-4 bg-green-600 p-3 font-bold text-white text-lg">
@@ -31,22 +33,22 @@
       <div class="grid grid-cols-4 gap-4 justify-items-center px-6 mb-8">
         <div
           :class="selected === 'green' ? 'border-2 border-white' : ''"
-          class="p-5 shadow-lg rounded-full bg-green-600"
+          class="cursor-pointer p-5 shadow-lg rounded-full bg-green-600"
           @click="selected = 'green'"
         ></div>
         <div
           :class="selected === 'red' ? 'border-2 border-white' : ''"
-          class="p-5 shadow-lg rounded-full bg-red-600"
+          class="cursor-pointer p-5 shadow-lg rounded-full bg-red-600"
           @click="selected = 'red'"
         ></div>
         <div
           :class="selected === 'blue' ? 'border-2 border-white' : ''"
-          class="p-5 shadow-lg rounded-full bg-blue-600"
+          class="cursor-pointer p-5 shadow-lg rounded-full bg-blue-600"
           @click="selected = 'blue'"
         ></div>
         <div
           :class="selected === 'black' ? 'border-2 border-white' : ''"
-          class="p-5 shadow-lg rounded-full bg-black"
+          class="cursor-pointer p-5 shadow-lg rounded-full bg-black"
           @click="selected = 'black'"
         ></div>
       </div>

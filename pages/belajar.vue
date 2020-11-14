@@ -30,24 +30,24 @@
 
       <div class="grid grid-cols-4 gap-4 justify-items-center px-6 mb-8">
         <div
-          @click="selected = 'green'"
           :class="selected === 'green' ? 'border-2 border-white' : ''"
           class="p-5 shadow-lg rounded-full bg-green-600"
+          @click="selected = 'green'"
         ></div>
         <div
-          @click="selected = 'red'"
           :class="selected === 'red' ? 'border-2 border-white' : ''"
           class="p-5 shadow-lg rounded-full bg-red-600"
+          @click="selected = 'red'"
         ></div>
         <div
-          @click="selected = 'blue'"
           :class="selected === 'blue' ? 'border-2 border-white' : ''"
           class="p-5 shadow-lg rounded-full bg-blue-600"
+          @click="selected = 'blue'"
         ></div>
         <div
-          @click="selected = 'black'"
           :class="selected === 'black' ? 'border-2 border-white' : ''"
           class="p-5 shadow-lg rounded-full bg-black"
+          @click="selected = 'black'"
         ></div>
       </div>
       <div v-if="selected === 'green'">
@@ -79,6 +79,11 @@
             Malaysia.
           </p>
           <p class="mt-2 font-bold">Contohnya: Ibadah - Rahmah</p>
+          <li v-for="info in infos['Blue']" :key="info.id">
+            {{ info.arabic }}
+            -
+            {{ info.malay }}
+          </li>
         </div>
       </div>
       <div v-else-if="selected === 'black'">
@@ -95,11 +100,27 @@
   </transition>
 </template>
 <script>
+import axios from 'axios'
 export default {
+  async asyncData() {
+    // const res = await $axios.$get(
+    //   'http://127.0.0.1:8000/api/dictionary/category'
+    // )
+    // const infos = res.data
+    // return { infos }
+    let infos = ''
+    await axios
+      .get(`http://127.0.0.1:8000/api/dictionary/category`)
+      .then((response) => (infos = response.data.data))
+      .catch((e) => console.log(e))
+
+    return { infos }
+  },
   data() {
     return {
       selected: 'green',
     }
   },
+  created() {},
 }
 </script>

@@ -60,6 +60,11 @@
             Malaysia/Indonesia.
           </p>
           <p class="mt-2 font-bold">Contohnya: Kitab - Allah</p>
+          <li v-for="info in infos['Green']" :key="info.id">
+            {{ info.arabic }}
+            -
+            {{ info.malay }}
+          </li>
         </div>
       </div>
       <div v-else-if="selected === 'red'">
@@ -70,6 +75,11 @@
             Mempunyai sekitar 70 perkataan dalam al-Quran.
           </p>
           <p class="mt-2 font-bold">Contohnya: Didalam - Itu</p>
+          <li v-for="info in infos['Red']" :key="info.id">
+            {{ info.arabic }}
+            -
+            {{ info.malay }}
+          </li>
         </div>
       </div>
       <div v-else-if="selected === 'blue'">

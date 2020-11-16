@@ -112,7 +112,7 @@ export default {
     // return { infos }
     let infos = ''
     await axios
-      .get(`http://127.0.0.1:8000/api/dictionary/category`)
+      .get(`https://admin.aridzuan.com/api/dictionary/category`)
       .then((response) => (infos = response.data.data))
       .catch((e) => console.log(e))
 

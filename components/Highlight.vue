@@ -23,7 +23,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get(`http://127.0.0.1:8000/api/dictionary`)
+      .get(`https://admin.aridzuan.com/api/dictionary`)
       .then((response) => (this.info = response.data.data))
       .catch((e) => console.log(e))
       .finally(() => {

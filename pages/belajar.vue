@@ -114,23 +114,16 @@
 <script>
 import axios from 'axios'
 export default {
-  async asyncData() {
-    // const res = await $axios.$get(
-    //   'http://127.0.0.1:8000/api/dictionary/category'
-    // )
-    // const infos = res.data
-    // return { infos }
-    let infos = ''
+  async mounted() {
     await axios
       .get(`https://admin.aridzuan.com/api/dictionary/category`)
-      .then((response) => (infos = response.data.data))
+      .then((response) => (this.infos = response.data.data))
       .catch((e) => console.log(e))
-
-    return { infos }
   },
   data() {
     return {
       selected: 'green',
+      infos: '',
     }
   },
   created() {},

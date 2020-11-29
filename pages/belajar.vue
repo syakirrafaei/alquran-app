@@ -59,12 +59,8 @@
             Perkataan dalam Al-Quran yang sama erti dengan Bahasa
             Malaysia/Indonesia.
           </p>
-          <p class="mt-2 font-bold">Contohnya: Kitab - Allah</p>
-          <li v-for="info in infos['Green']" :key="info.id">
-            {{ info.arabic }}
-            -
-            {{ info.malay }}
-          </li>
+          <p class="mt-2 font-bold">Contohnya:</p>
+          <Table :color="color[0]" :ths="ths" :trs="infos['Green']" />
         </div>
       </div>
       <div v-else-if="selected === 'red'">
@@ -74,12 +70,8 @@
             Kalimah atau Huruf yang umumnya berulang di dalam al-Quran.
             Mempunyai sekitar 70 perkataan dalam al-Quran.
           </p>
-          <p class="mt-2 font-bold">Contohnya: Didalam - Itu</p>
-          <li v-for="info in infos['Red']" :key="info.id">
-            {{ info.arabic }}
-            -
-            {{ info.malay }}
-          </li>
+          <p class="mt-2 font-bold">Contohnya:</p>
+          <Table :color="color[1]" :ths="ths" :trs="infos['Red']" />
         </div>
       </div>
       <div v-else-if="selected === 'blue'">
@@ -90,12 +82,8 @@
             berulang atau mempunyai kata pinjaman dari Bahasa Arab ke Bahasa
             Malaysia.
           </p>
-          <p class="mt-2 font-bold">Contohnya: Ibadah - Rahmah</p>
-          <li v-for="info in infos['Blue']" :key="info.id">
-            {{ info.arabic }}
-            -
-            {{ info.malay }}
-          </li>
+          <p class="mt-2 font-bold">Contohnya:</p>
+          <Table :color="color[2]" :ths="ths" :trs="infos['Blue']" />
         </div>
       </div>
       <div v-else-if="selected === 'black'">
@@ -105,7 +93,8 @@
             Kalimah atau Huruf yang sukar difahami maknanya (Perkataan-perkataan
             ini tidak perlu dihafal maknanya, hanya perlu merujuk kamus).
           </p>
-          <p class="mt-2 font-bold">Contohnya: Keraguan - Sama</p>
+          <p class="mt-2 font-bold">Contohnya:</p>
+          <Table :color="color[3]" :ths="ths" :trs="infos['Black']" />
         </div>
       </div>
     </div>
@@ -124,6 +113,17 @@ export default {
     return {
       selected: 'green',
       infos: '',
+      ths: [
+        { id: 0, value: 'No.' },
+        { id: 1, value: 'Arabic' },
+        { id: 2, value: 'Melayu' },
+      ],
+      color: [
+        { id: 0, value: 'text-green-600' },
+        { id: 1, value: 'text-red-600' },
+        { id: 2, value: 'text-blue-600' },
+        { id: 3, value: 'text-black' },
+      ],
     }
   },
   created() {},

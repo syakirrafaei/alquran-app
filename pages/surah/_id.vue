@@ -28,10 +28,7 @@
         </div>
       </div>
       <div class="row-span-1 col-span-1 text-center px-2">
-        <div
-          class="cursor-pointer text-blue-600 dark:text-blue-100"
-          @click="bookmark(ayah)"
-        >
+        <div class="cursor-pointer text-blue-600" @click="bookmark(ayah)">
           <svg
             v-if="localAyah == ayah.numberInSurah"
             class="w-6 h-6 mx-auto text-red-500"
@@ -141,9 +138,9 @@ export default {
   @apply bg-white;
 }
 .dark-mode .bg-grey:nth-child(even) {
-  @apply bg-teal-800 text-white;
+  @apply bg-teal-200 text-black;
 }
 .dark-mode .bg-grey:nth-child(odd) {
-  @apply text-white;
+  @apply bg-teal-300 text-black;
 }
 </style>

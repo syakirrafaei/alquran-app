@@ -138,9 +138,9 @@ export default {
   @apply bg-white;
 }
 .dark-mode .bg-grey:nth-child(even) {
-  @apply bg-teal-200 text-black;
+  @apply bg-gray-200 text-black;
 }
 .dark-mode .bg-grey:nth-child(odd) {
-  @apply bg-teal-300 text-black;
+  @apply bg-gray-100 text-black;
 }
 </style>

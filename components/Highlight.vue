@@ -1,6 +1,15 @@
 <template>
   <div>
     <client-only placeholder="Loading...">
+      <div class="flex flex-row flex-wrap" v-if="isLoading">
+        <div class="w-full text-right mb-2">
+          <svg
+            class="inline-block animate-spin h-8 w-8 rounded-full border-t-4 border-green-500 mr-3 ..."
+            viewBox="0 0 24 24"
+          ></svg>
+          <div class="text-base text-gray-600 font-semibold">Loading..</div>
+        </div>
+      </div>
       <span v-html="high"></span>
     </client-only>
   </div>
@@ -19,6 +28,7 @@ export default {
     return {
       high: '',
       info: '',
+      isLoading: true,
     }
   },
   async mounted() {
@@ -46,6 +56,7 @@ export default {
           )
         }
       }
+      this.isLoading = false
     },
   },
 }
@@ -55,6 +66,6 @@ export default {
   @apply text-red-600;
 }
 .red:nth-child(odd) {
-  @apply text-orange-600;
+  @apply text-orange-500;
 }
 </style>

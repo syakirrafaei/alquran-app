@@ -47,7 +47,7 @@ export default {
         if (value.color_name === 'Red') {
           this.high = this.high.replaceAll(
             value.arabic,
-            `<span class="tooltip" data-text="${value.malay}"><span class="red">${value.arabic}</span></span>`
+            `<span class="red tooltip" data-text="${value.malay}">${value.arabic}</span>`
           )
         } else {
           this.high = this.high.replaceAll(
@@ -63,7 +63,7 @@ export default {
 </script>
 <style>
 .red:nth-child(even) {
-  @apply text-red-600;
+  @apply text-red-500;
 }
 .red:nth-child(odd) {
   @apply text-orange-500;

@@ -47,12 +47,12 @@ export default {
         if (value.color_name === 'Red') {
           this.high = this.high.replaceAll(
             value.arabic,
-            `<span class="red">${value.arabic}</span>`
+            `<span class="tooltip" data-text="${value.malay}"><span class="red">${value.arabic}</span></span>`
           )
         } else {
           this.high = this.high.replaceAll(
             value.arabic,
-            `<span style="color: ${value.color};">${value.arabic}</span>`
+            `<span class="tooltip" data-text="${value.malay}"><span style="color: ${value.color};">${value.arabic}</span></span>`
           )
         }
       }

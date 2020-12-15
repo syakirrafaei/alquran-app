@@ -52,7 +52,7 @@ export default {
         } else {
           this.high = this.high.replaceAll(
             value.arabic,
-            `<span class="tooltip" data-text="${value.malay}"><span style="color: ${value.color};">${value.arabic}</span></span>`
+            `<span class="tooltip" data-text="${value.malay}"><span id="green" style="color: ${value.color} !important;">${value.arabic}</span></span>`
           )
         }
       }
@@ -62,6 +62,9 @@ export default {
 }
 </script>
 <style>
+#green .red {
+  color: inherit;
+}
 .red:nth-child(even) {
   @apply text-red-500;
 }

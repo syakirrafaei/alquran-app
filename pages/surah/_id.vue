@@ -24,7 +24,7 @@
     >
       <div class="row-span-1 col-span-1 text-center my-auto px-2">
         <div class="number-kitab rounded-full">
-          {{ ayah.numberInSurah.toLocaleString('ar-EG') }}
+          ({{ ayah.numberInSurah.toLocaleString('ar-EG') }})
         </div>
       </div>
       <div class="row-span-1 col-span-1 text-center px-2">

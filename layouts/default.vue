@@ -10,8 +10,12 @@
 <style>
 @font-face {
   font-family: 'Kitab';
-  src: url('https://cdn.quranonline.net/wp-content/plugins/quran-learning-app/public/app/assets/fonts/UH1_Ver14.otf');
-  /* src: url('//cdn.alquran.cloud/public/fonts/Kitab-Regular.ttf'); */
+  /* src: url('https://cdn.quranonline.net/wp-content/plugins/quran-learning-app/public/app/assets/fonts/UH1_Ver14.otf'); */
+  src: local('KFGQPC Uthman Taha Naskh'),
+    url(https://cdn.rawgit.com/mustafa0x/qpc-fonts/f93bf5f3/various-woff2/UthmanTN1%20Ver10.woff2)
+      format('woff2'),
+    url(https://cdn.rawgit.com/mustafa0x/qpc-fonts/f93bf5f3/various-woff/UthmanTN1%20Ver10.woff)
+      format('woff');
 }
 
 .font-kitab {
